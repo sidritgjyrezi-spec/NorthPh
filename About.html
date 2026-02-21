@@ -129,10 +129,33 @@
           max-width: 1480px;
           margin: 0 auto;
           text-align: center;
+          opacity: 0;
+          animation: fadeInUp 1s ease-out forwards;
       }
 
       section:first-of-type {
           padding-top: 12rem;
+          animation-delay: 0.2s;
+      }
+
+      section:nth-of-type(2) {
+          animation-delay: 0.35s;
+      }
+
+      section:nth-of-type(3) {
+          animation-delay: 0.5s;
+      }
+
+      section:nth-of-type(4) {
+          animation-delay: 0.65s;
+      }
+
+      section:nth-of-type(5) {
+          animation-delay: 0.8s;
+      }
+
+      section:nth-of-type(6) {
+          animation-delay: 0.95s;
       }
 
       section h2 {
@@ -140,6 +163,7 @@
           font-size: 3.2rem;
           color: var(--primary);
           margin-bottom: 1.6rem;
+          animation: textReveal 0.8s ease-out 0.3s backwards;
       }
 
       section p.lead {
@@ -148,6 +172,7 @@
           max-width: 760px;
           margin: 0 auto 3rem;
           line-height: 1.8;
+          animation: fadeInUp 1s ease-out 0.5s backwards;
       }
 
       section p.lead strong {
@@ -159,6 +184,7 @@
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           color: white;
           padding: 6rem 5% 3rem;
+          animation: fadeIn 1s ease-out;
       }
 
       .footer-container {
@@ -167,6 +193,22 @@
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
           gap: 3.5rem;
+      }
+
+      .footer-section {
+          animation: fadeInUp 0.8s ease-out backwards;
+      }
+
+      .footer-section:nth-child(1) {
+          animation-delay: 0.2s;
+      }
+
+      .footer-section:nth-child(2) {
+          animation-delay: 0.35s;
+      }
+
+      .footer-section:nth-child(3) {
+          animation-delay: 0.5s;
       }
 
       .footer-section h3 {
@@ -178,12 +220,13 @@
           color: white;
           text-decoration: none;
           opacity: 0.92;
-          transition: opacity 0.25s;
+          transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+          display: inline-block;
       }
 
       .footer-section a:hover {
           opacity: 1;
-          /* no underline – matches your current About style */
+          transform: translateY(-2px);
       }
 
       .social-links {
@@ -200,12 +243,26 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.3s;
+          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+          animation: scaleUp 0.6s ease-out backwards;
+      }
+
+      .social-links a:nth-child(1) {
+          animation-delay: 0.8s;
+      }
+
+      .social-links a:nth-child(2) {
+          animation-delay: 1s;
       }
 
       .social-links a:hover {
           background: rgba(255,255,255,0.38);
-          transform: translateY(-3px);
+          transform: translateY(-6px) scale(1.15) rotate(10deg);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .social-links a:active {
+          transform: translateY(-2px) scale(1.05);
       }
 
       .footer-bottom {
@@ -240,6 +297,98 @@
           .btn-primary { padding: 0.9rem 2rem; font-size: 1rem; }
       }
 
+      /* ===== ANIMATIONS ===== */
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(60px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      @keyframes fadeIn {
+          from {
+              opacity: 0;
+          }
+          to {
+              opacity: 1;
+          }
+      }
+
+      @keyframes scaleUp {
+          from {
+              opacity: 0;
+              transform: scale(0.95);
+          }
+          to {
+              opacity: 1;
+              transform: scale(1);
+          }
+      }
+
+      @keyframes slideInLeft {
+          from {
+              opacity: 0;
+              transform: translateX(-50px);
+          }
+          to {
+              opacity: 1;
+              transform: translateX(0);
+          }
+      }
+
+      @keyframes slideInRight {
+          from {
+              opacity: 0;
+              transform: translateX(50px);
+          }
+          to {
+              opacity: 1;
+              transform: translateX(0);
+          }
+      }
+
+      @keyframes textReveal {
+          from {
+              opacity: 0;
+              transform: translateY(20px) rotateX(-15deg);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0) rotateX(0);
+          }
+      }
+
+      @keyframes pulse {
+          0%, 100% {
+              opacity: 1;
+          }
+          50% {
+              opacity: 0.7;
+          }
+      }
+
+      @keyframes glow {
+          0%, 100% {
+              box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+          }
+          50% {
+              box-shadow: 0 15px 50px rgba(139, 92, 246, 0.4);
+          }
+      }
+
+      @keyframes float {
+          0%, 100% {
+              transform: translateY(0px);
+          }
+          50% {
+              transform: translateY(-8px);
+          }
+      }
+
       .premium-cta {
           display: inline-block;
           padding: 1rem 2.8rem;
@@ -254,26 +403,46 @@
           box-shadow: 0 10px 30px rgba(99, 102, 241, 0.35);
           transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
           margin-top: 1.6rem;
+          animation: scaleUp 0.8s ease-out 1.2s backwards;
       }
 
       .premium-cta::before {
           content: '';
           position: absolute;
           inset: 0;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+          opacity: 0;
+          transition: opacity 0.6s ease;
+          z-index: -1;
+      }
+
+      .premium-cta::after {
+          content: '';
+          position: absolute;
+          inset: 0;
           background: linear-gradient(135deg, #a78bfa, #c084fc, #f472b6);
           opacity: 0;
           transition: opacity 0.5s ease;
-          z-index: -1;
+          z-index: -2;
       }
 
       .premium-cta:hover::before {
           opacity: 1;
+          animation: slideInLeft 0.6s ease forwards;
+      }
+
+      .premium-cta:hover::after {
+          opacity: 1;
       }
 
       .premium-cta:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.5);
-          letter-spacing: 0.5px;
+          transform: translateY(-8px) scale(1.12);
+          box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.6);
+          letter-spacing: 1px;
+      }
+
+      .premium-cta:active {
+          transform: translateY(-3px) scale(1.08);
       }
   </style>
 </head>
@@ -289,7 +458,6 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="Products.html">Products</a></li>
-      <li><a href="Feedback.html">Feedback</a></li>
       <li><a href="About.html">About Us</a></li>
     </ul>
 
@@ -362,12 +530,12 @@
     <div class="footer-section">
       <h3>Follow Us</h3>
       <div class="social-links">
-        <a href="https://instagram.com/northaesthetic" target="_blank" aria-label="Instagram">
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
           <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
         </a>
-        <a href="https://facebook.com/northaesthetic" target="_blank" aria-label="Facebook">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
           <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
             <path d="M22.675 0h-21.35C.596 0 0 .592 0 1.326v21.348C0 23.406.596 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.795.144v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.762v2.31h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.324-.594 1.324-1.326V1.326C24 .592 23.404 0 22.675 0z"/>
           </svg>
@@ -447,6 +615,38 @@ a.classList.remove('active');
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ===== SCROLL-TRIGGERED ANIMATIONS =====
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -80px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// Observe all sections
+document.querySelectorAll('section').forEach((section, idx) => {
+  section.style.opacity = '0';
+  section.style.animationDelay = `${idx * 0.15}s`;
+  observer.observe(section);
+});
+
+// Add staggered animation to section children
+document.querySelectorAll('section h2').forEach((h2, idx) => {
+  h2.style.animationDelay = `${(idx * 0.2) + 0.3}s`;
+});
+
+document.querySelectorAll('section p.lead').forEach((p, idx) => {
+  p.style.animationDelay = `${(idx * 0.2) + 0.5}s`;
+});
 </script>
 
 </body>
