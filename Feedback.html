@@ -137,45 +137,46 @@
         });
     });
 
+    // Star Rating System
+    const stars = document.querySelectorAll('.star');
+    const ratingInput = document.getElementById('rating');
 
-    // Form Submission - Save to TXT File
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            const rating = star.getAttribute('data-rating');
+            ratingInput.value = rating;
 
+            stars.forEach(s => {
+                if (s.getAttribute('data-rating') <= rating) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+        });
 
-        const submitBtn = document.querySelector('.submit-btn');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Processing...';
+        star.addEventListener('mouseover', () => {
+            const rating = star.getAttribute('data-rating');
+            stars.forEach(s => {
+                if (s.getAttribute('data-rating') <= rating) {
+                    s.style.color = '#FFD700';
+                } else {
+                    s.style.color = '#ddd';
+                }
+            });
+        });
+    });
 
-        const timestamp = new Date().toLocaleString();
-
-        const blob = new Blob([feedbackText], { type: 'text/plain' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `Feedback_${name.replace(/\s+/g, '_')}_${Date.now()}.txt`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-
-        // Show success message
-        setTimeout(() => {
-            document.getElementById('successMessage').classList.add('show');
-
-            // Reset form
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('category').value = '';
-            document.getElementById('rating').value = '0';
-            stars.forEach(s => s.classList.remove('active'));
-            document.getElementById('message').value = '';
-
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Feedback';
-
-            setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('show');
-            }, 5000);
-        }, 500);
+    document.getElementById('ratingContainer').addEventListener('mouseleave', () => {
+        const currentRating = ratingInput.value;
+        stars.forEach(s => {
+            if (s.getAttribute('data-rating') <= currentRating) {
+                s.style.color = '#FFD700';
+            } else {
+                s.style.color = '#ddd';
+            }
+        });
+    });
 
     // Navbar Scroll
     let lastScroll = 0;
@@ -195,6 +196,11 @@
         }
         lastScroll = current;
     });
+</script>
+
+<script type="module">
+    import { submitFeedback } from './src/main.js';
+    window.submitFeedback = submitFeedback;
 </script>
 </body>
 </html>
