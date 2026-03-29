@@ -8,8 +8,9 @@
     <title>Feedback - North Aesthetic</title>
     <link rel="stylesheet" href="public/style.css">
     <script type="module">
-        import { submitFeedback } from './src/main.js';
+        import { submitFeedback, handleFeedbackSubmission } from './src/main.js';
         window.submitFeedback = submitFeedback;
+        window.handleFeedbackSubmission = handleFeedbackSubmission;
     </script>
 </head>
 <body class="feedback-page">
@@ -39,23 +40,6 @@
 </div>
 <section class="feedback-section">
     <div class="feedback-container">
-        <div class="feedback-info">
-            <div class="info-card">
-                <div class="info-icon">💬</div>
-                <h3>Share Your Thoughts</h3>
-                <p>Tell us what you think about our products and services</p>
-            </div>
-            <div class="info-card">
-                <div class="info-icon">⭐</div>
-                <h3>Rate Your Experience</h3>
-                <p>Help us understand your satisfaction level</p>
-            </div>
-            <div class="info-card">
-                <div class="info-icon">🚀</div>
-                <h3>Drive Improvement</h3>
-                <p>Your feedback directly shapes our future</p>
-            </div>
-        </div>
         <div class="feedback-form-wrapper">
             <div class="feedback-form">
                 <div class="success-message" id="successMessage">
@@ -106,7 +90,7 @@
                         <label for="message">Your Message</label>
                         <textarea id="message" placeholder="Share your thoughts, suggestions, or concerns..." rows="6" required></textarea>
                     </div>
-                    <button type="button" class="submit-btn" onclick="submitFeedback()">
+                    <button type="button" class="submit-btn" onclick="handleFeedbackSubmission()">
                         <span class="btn-text">Send Feedback</span>
                         <span class="btn-icon">→</span>
                     </button>

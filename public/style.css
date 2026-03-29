@@ -1535,21 +1535,45 @@ footer {
 /* ===== RESPONSIVE DESIGN ===== */
 
 @media (max-width: 1024px) {
-    .feedback-hero h1 {
-        font-size: 2.5rem;
+    .hamburger {
+        display: flex;
     }
 
-    .feedback-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+    .nav-links {
+        position: fixed;
+        top: 68px;
+        right: 0;
+        width: 280px;
+        height: auto;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 24px 20px;
+        gap: 20px;
+        border-left: 1px solid #e3e8f0;
+        border-bottom: 1px solid #e3e8f0;
+        border-bottom-left-radius: 12px;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.15);
+        z-index: 999;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
+    .nav-links.active {
+        transform: translateX(0);
     }
 
-    .feedback-form {
-        padding: 2rem;
+    .nav-links a {
+        color: #1a2233 !important;
+        font-weight: 500;
+        font-size: 1.1rem;
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+        background-color: rgba(102, 126, 234, 0.1);
     }
 }
 
@@ -1603,20 +1627,36 @@ footer {
 
 @media (max-width: 480px) {
     .feedback-hero {
-        padding: 3rem 5% 2rem;
+        padding: 2.5rem 0 1.5rem;
         margin-top: 60px;
+        display: flex;
+        align-items: center;
+        min-height: 200px;
     }
 
     .feedback-hero h1 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+        line-height: 1.2;
     }
 
     .feedback-hero p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
     }
 
-    .feedback-form {
-        padding: 1rem;
+    .hero-accent {
+        width: 60px;
+        height: 4px;
+    }
+
+    .feedback-section {
+        padding: 2rem 5%;
+    }
+
+    .feedback-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: none;
     }
 
     .feedback-info {
@@ -1625,33 +1665,111 @@ footer {
 
     .info-card {
         padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .info-icon {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
     }
 
     .info-card h3 {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
     }
 
     .info-card p {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .feedback-form-wrapper {
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .feedback-form {
+        padding: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem 0.8rem 0.8rem 2.2rem;
+        font-size: 16px; /* Prevents zoom on iOS */
+        border-radius: 8px;
+    }
+
+    .form-icon {
+        left: 0.7rem;
+        top: 2.1rem;
+        font-size: 1rem;
+    }
+
+    .rating-container {
+        gap: 0.6rem;
+        margin-bottom: 0.4rem;
     }
 
     .star {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    .rating-text {
+        font-size: 0.8rem;
     }
 
     .submit-btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.95rem;
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
     }
 
     .success-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
         margin-bottom: 1rem;
     }
 
     .success-message h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .success-message p {
+        font-size: 0.95rem;
+    }
+
+    /* Hamburger menu adjustments for phones */
+    .hamburger {
+        padding: 6px;
+    }
+
+    .hamburger span {
+        width: 24px;
+        height: 2.5px;
+    }
+
+    .nav-links {
+        width: 260px;
+        padding: 20px 16px;
+        gap: 16px;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        padding: 10px 14px;
     }
 }
