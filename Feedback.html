@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,11 +6,13 @@
     <meta name="description" content="Share your feedback with North Aesthetic. Help us improve our products, customer service, and overall experience.">
     <meta name="keywords" content="north aesthetic feedback, customer reviews, product suggestions">
     <title>Feedback - North Aesthetic</title>
-
     <link rel="stylesheet" href="public/style.css">
+    <script type="module">
+        import { submitFeedback } from './src/main.js';
+        window.submitFeedback = submitFeedback;
+    </script>
 </head>
 <body class="feedback-page">
-<!-- Navigation -->
 <nav class="visible">
     <div class="nav-container">
         <a href="index.html" class="logo">
@@ -20,80 +22,104 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="Products.html">Products</a></li>
-            <li><a href="Feedback.html">Feedback</a></li>
             <li><a href="About.html">About Us</a></li>
+            <li><a href="Feedback.html">Feedback</a></li>
         </ul>
         <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </div>
 </nav>
-
-<!-- Hero Section -->
-<div class="hero">
-    <h1>We Value Your Feedback</h1>
-    <p>Help us improve by sharing your thoughts and experiences</p>
-</div>
-
-<!-- Feedback Form -->
-<div class="container">
-    <div class="feedback-form">
-        <div class="success-message" id="successMessage">
-            Thank you for your feedback! We appreciate your input.
-        </div>
-
-        <div class="form-group">
-            <label for="name">Your Name *</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
-        </div>
-
-        <div class="form-group">
-            <label for="category">Feedback Category *</label>
-            <select id="category" required>
-                <option value="">Select a category</option>
-                <option value="product">Product Quality</option>
-                <option value="service">Customer Service</option>
-                <option value="website">Website Experience</option>
-                <option value="shipping">Shipping & Delivery</option>
-                <option value="other">Other</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Rating *</label>
-            <div class="rating-container" id="ratingContainer">
-                <span class="star" data-rating="1">★</span>
-                <span class="star" data-rating="2">★</span>
-                <span class="star" data-rating="3">★</span>
-                <span class="star" data-rating="4">★</span>
-                <span class="star" data-rating="5">★</span>
-            </div>
-            <input type="hidden" id="rating" value="0">
-        </div>
-
-        <div class="form-group">
-            <label for="message">Your Message *</label>
-            <textarea id="message" placeholder="Share your thoughts, suggestions, or concerns..." required></textarea>
-        </div>
-
-        <button class="submit-btn" onclick="submitFeedback()">Submit Feedback</button>
+<div class="feedback-hero">
+    <div class="feedback-hero-content">
+        <h1>Your Feedback Matters</h1>
+        <p>Help us create the best experience for you</p>
+        <div class="hero-accent"></div>
     </div>
 </div>
-
-<!-- Footer -->
+<section class="feedback-section">
+    <div class="feedback-container">
+        <div class="feedback-info">
+            <div class="info-card">
+                <div class="info-icon">💬</div>
+                <h3>Share Your Thoughts</h3>
+                <p>Tell us what you think about our products and services</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">⭐</div>
+                <h3>Rate Your Experience</h3>
+                <p>Help us understand your satisfaction level</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🚀</div>
+                <h3>Drive Improvement</h3>
+                <p>Your feedback directly shapes our future</p>
+            </div>
+        </div>
+        <div class="feedback-form-wrapper">
+            <div class="feedback-form">
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">✓</div>
+                    <h2>Thank You!</h2>
+                    <p>Your feedback has been sent successfully. We appreciate your input!</p>
+                </div>
+                <form id="feedbackForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="John Doe" required>
+                            <span class="form-icon">👤</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="you@example.com" required>
+                            <span class="form-icon">📧</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Feedback Category</label>
+                            <select id="category" required>
+                                <option value="">Select a category</option>
+                                <option value="product">✨ Product Quality</option>
+                                <option value="service">🎯 Customer Service</option>
+                                <option value="website">💻 Website Experience</option>
+                                <option value="shipping">📦 Shipping & Delivery</option>
+                                <option value="other">📝 Other</option>
+                            </select>
+                            <span class="form-icon">📂</span>
+                        </div>
+                        <div class="form-group rating-group">
+                            <label>Your Rating</label>
+                            <div class="rating-container" id="ratingContainer">
+                                <span class="star" data-rating="1" title="Poor">★</span>
+                                <span class="star" data-rating="2" title="Fair">★</span>
+                                <span class="star" data-rating="3" title="Good">★</span>
+                                <span class="star" data-rating="4" title="Very Good">★</span>
+                                <span class="star" data-rating="5" title="Excellent">★</span>
+                            </div>
+                            <input type="hidden" id="rating" value="0">
+                            <span class="rating-text" id="ratingText">Select a rating</span>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="Share your thoughts, suggestions, or concerns..." rows="6" required></textarea>
+                    </div>
+                    <button type="button" class="submit-btn" onclick="submitFeedback()">
+                        <span class="btn-text">Send Feedback</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 <footer>
   <div class="footer-container">
     <div class="footer-section">
       <h3>Contact Us</h3>
       <p><span class="footer-icon">📧</span>Email: <a href="mailto:info@northaesthetic.com">info@northaesthetic.com</a></p>
-      <p><span class="footer-icon">📧</span>Email: <a href="mailto:sales@northaesthetic.com">sales@northaesthetic.com</a></p>
       <p><span class="footer-icon">📞</span>Phone: <a href="tel:+355 68 233 2220">+355 68 233 2220</a></p>
       <p><span class="footer-icon">📍</span>Address: Tirana, Albania</p>
     </div>
@@ -101,11 +127,8 @@
       <h3>Follow Us</h3>
       <div class="social-links">
         <a href="https://www.instagram.com/north_aesthetic1?igsh=N3F6YTI0Nmt1aTR3" target="_blank" title="Instagram">
-          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-
       </div>
     </div>
     <div class="footer-section">
@@ -119,33 +142,27 @@
     <p>&copy; 2026 North Aesthetic. All rights reserved.</p>
   </div>
 </footer>
-
 <script>
-    // Hamburger Menu
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
     });
-
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
         });
     });
-
-    // Star Rating System
     const stars = document.querySelectorAll('.star');
     const ratingInput = document.getElementById('rating');
-
+    const ratingText = document.getElementById('ratingText');
+    const ratingLabels = ['Poor', 'Fair', 'Good', 'Very Good', 'Excellent'];
     stars.forEach(star => {
         star.addEventListener('click', () => {
             const rating = star.getAttribute('data-rating');
             ratingInput.value = rating;
-
             stars.forEach(s => {
                 if (s.getAttribute('data-rating') <= rating) {
                     s.classList.add('active');
@@ -153,35 +170,33 @@
                     s.classList.remove('active');
                 }
             });
+            if (ratingText) {
+                ratingText.textContent = ratingLabels[rating - 1];
+            }
         });
-
         star.addEventListener('mouseover', () => {
             const rating = star.getAttribute('data-rating');
             stars.forEach(s => {
                 if (s.getAttribute('data-rating') <= rating) {
-                    s.style.color = '#FFD700';
+                    s.style.color = '#fbbf24';
                 } else {
-                    s.style.color = '#ddd';
+                    s.style.color = '#e5e7eb';
                 }
             });
         });
     });
-
     document.getElementById('ratingContainer').addEventListener('mouseleave', () => {
         const currentRating = ratingInput.value;
         stars.forEach(s => {
             if (s.getAttribute('data-rating') <= currentRating) {
-                s.style.color = '#FFD700';
+                s.style.color = '#fbbf24';
             } else {
-                s.style.color = '#ddd';
+                s.style.color = '#e5e7eb';
             }
         });
     });
-
-    // Navbar Scroll
     let lastScroll = 0;
     const navbar = document.querySelector('nav');
-
     window.addEventListener('scroll', () => {
         const current = window.pageYOffset;
         if (current <= 0) {
@@ -196,11 +211,6 @@
         }
         lastScroll = current;
     });
-</script>
-
-<script type="module">
-    import { submitFeedback } from './src/main.js';
-    window.submitFeedback = submitFeedback;
 </script>
 </body>
 </html>
