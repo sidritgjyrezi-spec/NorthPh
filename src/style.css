@@ -1,6 +1,6 @@
 /* ================================================================
    NORTH AESTHETIC — LUXURY REDESIGN
-   Direction: Dark Opulence — obsidian + champagne gold + cream
+   Direction: Dark Opulence — midnight blue + sapphire + ice
    Typography: Cormorant Garamond (display) + DM Sans (body)
    ================================================================ */
 
@@ -8,22 +8,22 @@
 
 /* ── TOKENS ── */
 :root {
-    --obsidian:    #080808;
-    --obsidian-2:  #0f0f0f;
-    --obsidian-3:  #161616;
-    --obsidian-4:  #1e1e1e;
-    --obsidian-5:  #272727;
-    --gold:        #c9a96e;
-    --gold-light:  #e8d5a3;
-    --gold-dark:   #9a7a47;
-    --cream:       #f5f0e8;
-    --cream-2:     #ede5d5;
+    --obsidian:    #050810;
+    --obsidian-2:  #080d18;
+    --obsidian-3:  #0d1422;
+    --obsidian-4:  #111a2e;
+    --obsidian-5:  #172038;
+    --gold:        #4a8fe8;
+    --gold-light:  #a8c8f8;
+    --gold-dark:   #2563c4;
+    --cream:       #e8f0fd;
+    --cream-2:     #d5e4f7;
     --white:       #ffffff;
-    --text-primary:   #ede5d5;
-    --text-secondary: #a89880;
-    --text-muted:     #6b5f52;
-    --border:      rgba(201,169,110,0.18);
-    --border-strong: rgba(201,169,110,0.38);
+    --text-primary:   #d8e8f8;
+    --text-secondary: #7aa4cc;
+    --text-muted:     #4a6a8a;
+    --border:      rgba(74,143,232,0.18);
+    --border-strong: rgba(74,143,232,0.38);
 
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-heading: 'Cinzel', serif;
@@ -34,9 +34,9 @@
     --radius-lg:  14px;
     --radius-xl:  24px;
 
-    --shadow-gold: 0 0 40px rgba(201,169,110,0.12);
-    --shadow-card: 0 8px 48px rgba(0,0,0,0.55);
-    --shadow-deep: 0 24px 80px rgba(0,0,0,0.7);
+    --shadow-gold: 0 0 40px rgba(74,143,232,0.12);
+    --shadow-card: 0 8px 48px rgba(2,5,14,0.55);
+    --shadow-deep: 0 24px 80px rgba(2,5,14,0.7);
 
     --transition: 0.42s cubic-bezier(0.22,1,0.36,1);
     --transition-fast: 0.22s cubic-bezier(0.22,1,0.36,1);
@@ -84,7 +84,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
 
 /* ── SELECTION ── */
-::selection { background: rgba(201,169,110,0.25); color: var(--cream); }
+::selection { background: rgba(74,143,232,0.25); color: var(--cream); }
 
 /* ── TYPOGRAPHY ── */
 h1, h2, h3, h4 {
@@ -123,7 +123,7 @@ nav, #mainNav {
     display: flex;
     align-items: center;
     transition: background var(--transition), backdrop-filter var(--transition), transform var(--transition);
-    background: rgba(8,8,8,0.6);
+    background: rgba(5,8,16,0.6);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid var(--border);
@@ -267,15 +267,15 @@ nav.hidden, #mainNav.hidden {
     inset: 0;
     background:
             linear-gradient(to bottom,
-            rgba(8,8,8,0.3) 0%,
-            rgba(8,8,8,0.1) 30%,
-            rgba(8,8,8,0.15) 60%,
-            rgba(8,8,8,0.75) 100%
+            rgba(5,8,16,0.3) 0%,
+            rgba(5,8,16,0.1) 30%,
+            rgba(5,8,16,0.15) 60%,
+            rgba(5,8,16,0.75) 100%
             ),
             linear-gradient(to right,
-            rgba(8,8,8,0.5) 0%,
+            rgba(5,8,16,0.5) 0%,
             transparent 50%,
-            rgba(8,8,8,0.3) 100%
+            rgba(5,8,16,0.3) 100%
             );
 }
 
@@ -305,7 +305,7 @@ nav.hidden, #mainNav.hidden {
     font-size: 1.1rem;
     cursor: pointer;
     transition: var(--transition);
-    background: rgba(8,8,8,0.4);
+    background: rgba(5,8,16,0.4);
     backdrop-filter: blur(8px);
 }
 .prev { left: 2rem; }
@@ -330,7 +330,7 @@ nav.hidden, #mainNav.hidden {
 
 .dot {
     width: 24px; height: 2px;
-    background: rgba(201,169,110,0.35);
+    background: rgba(74,143,232,0.35);
     cursor: pointer;
     transition: var(--transition);
 }
@@ -476,7 +476,7 @@ section .lead {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(201,169,110,0.05), transparent);
+    background: linear-gradient(135deg, rgba(74,143,232,0.05), transparent);
     opacity: 0;
     transition: opacity var(--transition);
     z-index: 1;
@@ -514,7 +514,7 @@ section .lead {
 .overlay-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(8,8,8,0.75) 0%, transparent 55%);
+    background: linear-gradient(to top, rgba(5,8,16,0.75) 0%, transparent 55%);
     pointer-events: none;
 }
 
@@ -588,7 +588,7 @@ section .lead {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.88);
+    background: rgba(2,5,14,0.88);
     z-index: 2000;
     align-items: center;
     justify-content: center;
@@ -700,7 +700,7 @@ section#distributor h2::after {
     position: absolute;
     bottom: 0; right: 0;
     width: 120px; height: 120px;
-    background: radial-gradient(circle at bottom right, rgba(201,169,110,0.08), transparent 70%);
+    background: radial-gradient(circle at bottom right, rgba(74,143,232,0.08), transparent 70%);
     pointer-events: none;
 }
 
@@ -775,8 +775,8 @@ body.feedback-page {
     position: absolute;
     inset: 0;
     background:
-            radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,169,110,0.09), transparent),
-            radial-gradient(ellipse 60% 40% at 20% 0%, rgba(201,169,110,0.05), transparent);
+            radial-gradient(ellipse 80% 60% at 50% 100%, rgba(74,143,232,0.09), transparent),
+            radial-gradient(ellipse 60% 40% at 20% 0%, rgba(74,143,232,0.05), transparent);
 }
 
 .feedback-hero-content {
@@ -889,7 +889,7 @@ body.feedback-page {
 .form-group select:focus,
 .form-group textarea:focus {
     border-color: var(--gold-dark);
-    box-shadow: 0 0 0 3px rgba(201,169,110,0.1);
+    box-shadow: 0 0 0 3px rgba(74,143,232,0.1);
 }
 
 .form-group select option {
@@ -1054,7 +1054,7 @@ footer {
 .social-links a:hover {
     border-color: var(--gold);
     color: var(--gold);
-    background: rgba(201,169,110,0.08);
+    background: rgba(74,143,232,0.08);
 }
 
 .footer-bottom {
@@ -1101,7 +1101,7 @@ footer {
         position: fixed;
         top: 64px; left: 0; right: 0;
         flex-direction: column;
-        background: rgba(8,8,8,0.97);
+        background: rgba(5,8,16,0.97);
         backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--border);
         padding: 2rem 2rem;
