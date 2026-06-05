@@ -21,7 +21,7 @@ export function submitFeedback() {
   try {
     console.log('✓ submitFeedback function called');
     alert('Button clicked! Processing your feedback...');
-    
+
     const name = document.getElementById('name')?.value?.trim();
     const email = document.getElementById('email')?.value?.trim();
     const category = document.getElementById('category')?.value;
@@ -39,7 +39,7 @@ export function submitFeedback() {
       if (!category) missingFields.push('Category');
       if (!rating || rating === '0') missingFields.push('Rating');
       if (!message) missingFields.push('Message');
-      
+
       alert('❌ Please fill in all required fields:\n\n' + missingFields.join('\n'));
       return;
     }
@@ -103,13 +103,13 @@ export function submitFeedback() {
         console.error('Error type:', error.type);
         console.error('Error status:', error.status);
         console.error('Full error:', JSON.stringify(error));
-        
+
         let errorMsg = 'Failed to send feedback.';
         if (error.message) {
           errorMsg += '\n\nError: ' + error.message;
         }
         errorMsg += '\n\nPlease try again or contact us directly at info@northaesthetic.com';
-        
+
         alert('❌ ' + errorMsg);
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
@@ -123,7 +123,7 @@ export function submitFeedback() {
 // Function to handle feedback submission with confirmation
 export function handleFeedbackSubmission() {
   const confirmed = confirm('Are you finished with your feedback?\n\nClick OK to send your feedback, or Cancel to continue filling it out.');
-  
+
   if (confirmed) {
     submitFeedback();
   } else {

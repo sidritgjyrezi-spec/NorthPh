@@ -147,7 +147,7 @@
       particles.forEach(p => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(212, 175, 105, ${p.alpha})`;
+        ctx.fillStyle = `rgba(74, 143, 232, ${p.alpha})`;
         ctx.fill();
         p.x += p.vx;
         p.y += p.vy;
@@ -269,7 +269,7 @@
       #page-transition.enter.active { transform: scaleX(1); transform-origin: left; }
       .pt-bar {
         position: absolute; top: 0; left: 0; right: 0; height: 3px;
-        background: linear-gradient(90deg, #d4af69, #f5e4b0, #d4af69);
+        background: linear-gradient(90deg, #4a8fe8, #a8c8f8, #4a8fe8);
         background-size: 200% 100%;
         animation: ptShimmer 1s linear infinite;
       }
@@ -279,14 +279,14 @@
       #cursor-glow {
         position: fixed; width: 24px; height: 24px;
         border-radius: 50%; pointer-events: none; z-index: 99998;
-        background: radial-gradient(circle, rgba(212,175,105,0.55) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(74,143,232,0.55) 0%, transparent 70%);
         transform: translate(-50%, -50%);
         transition: width 0.25s ease, height 0.25s ease, background 0.25s ease;
         mix-blend-mode: screen;
       }
       #cursor-glow.hover {
         width: 56px; height: 56px;
-        background: radial-gradient(circle, rgba(212,175,105,0.35) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(74,143,232,0.35) 0%, transparent 70%);
       }
 
       /* Scroll reveal */
@@ -377,8 +377,8 @@
         animation: focusPulse 0.35s ease forwards;
       }
       @keyframes focusPulse {
-        0%   { box-shadow: 0 0 0 0 rgba(212,175,105,0.5); }
-        100% { box-shadow: 0 0 0 5px rgba(212,175,105,0.15); }
+        0%   { box-shadow: 0 0 0 0 rgba(74,143,232,0.5); }
+        100% { box-shadow: 0 0 0 5px rgba(74,143,232,0.15); }
       }
 
       /* Star rating pop */
@@ -425,7 +425,7 @@
       /* Scroll progress bar */
       #scroll-progress {
         position: fixed; top: 0; left: 0; height: 2px; z-index: 9999;
-        background: linear-gradient(90deg, #d4af69, #f5e4b0);
+        background: linear-gradient(90deg, #4a8fe8, #a8c8f8);
         width: 0%; transition: width 0.1s linear;
         pointer-events: none;
       }
@@ -435,8 +435,8 @@
         animation: dotPulse 1.8s ease-in-out infinite !important;
       }
       @keyframes dotPulse {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(212,175,105,0.5); }
-        50% { box-shadow: 0 0 0 5px rgba(212,175,105,0); }
+        0%, 100% { box-shadow: 0 0 0 0 rgba(74,143,232,0.5); }
+        50% { box-shadow: 0 0 0 5px rgba(74,143,232,0); }
       }
 
       /* Coming soon badge shimmer */

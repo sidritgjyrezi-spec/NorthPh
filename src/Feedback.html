@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Share your feedback with North Aesthetic. Help us improve our products, customer service, and overall experience.">
@@ -102,105 +101,6 @@
       </div>
     </div>
   </div>
-=======
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Share your feedback with North Aesthetic. Help us improve our products, customer service, and overall experience.">
-    <meta name="keywords" content="north aesthetic feedback, customer reviews, product suggestions">
-    <title>Feedback - North Aesthetic</title>
-    <link rel="stylesheet" href="public/style.css">
-    <script type="module">
-        import { submitFeedback, handleFeedbackSubmission } from './src/main.js';
-        window.submitFeedback = submitFeedback;
-        window.handleFeedbackSubmission = handleFeedbackSubmission;
-    </script>
-</head>
-<body class="feedback-page">
-<nav class="visible">
-    <div class="nav-container">
-        <a href="index.html" class="logo">
-            <img src="Aesthetic.jpg" alt="North Aesthetic Logo" class="logo-img" loading="lazy" width="70" height="70">
-            <span>North Aesthetic</span>
-        </a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Products.html">Products</a></li>
-            <li><a href="About.html">About Us</a></li>
-            <li><a href="Feedback.html">Feedback</a></li>
-        </ul>
-        <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
-            <span></span><span></span><span></span>
-        </div>
-    </div>
-</nav>
-<div class="feedback-hero">
-    <div class="feedback-hero-content">
-        <h1>Your Feedback Matters</h1>
-        <p>Help us create the best experience for you</p>
-        <div class="hero-accent"></div>
-    </div>
-</div>
-<section class="feedback-section">
-    <div class="feedback-container">
-        <div class="feedback-form-wrapper">
-            <div class="feedback-form">
-                <div class="success-message" id="successMessage">
-                    <div class="success-icon">✓</div>
-                    <h2>Thank You!</h2>
-                    <p>Your feedback has been sent successfully. We appreciate your input!</p>
-                </div>
-                <form id="feedbackForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="John Doe" required>
-                            <span class="form-icon">👤</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="you@example.com" required>
-                            <span class="form-icon">📧</span>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="category">Feedback Category</label>
-                            <select id="category" required>
-                                <option value="">Select a category</option>
-                                <option value="product">✨ Product Quality</option>
-                                <option value="service">🎯 Customer Service</option>
-                                <option value="website">💻 Website Experience</option>
-                                <option value="shipping">📦 Shipping & Delivery</option>
-                                <option value="other">📝 Other</option>
-                            </select>
-                            <span class="form-icon">📂</span>
-                        </div>
-                        <div class="form-group rating-group">
-                            <label>Your Rating</label>
-                            <div class="rating-container" id="ratingContainer">
-                                <span class="star" data-rating="1" title="Poor">★</span>
-                                <span class="star" data-rating="2" title="Fair">★</span>
-                                <span class="star" data-rating="3" title="Good">★</span>
-                                <span class="star" data-rating="4" title="Very Good">★</span>
-                                <span class="star" data-rating="5" title="Excellent">★</span>
-                            </div>
-                            <input type="hidden" id="rating" value="0">
-                            <span class="rating-text" id="ratingText">Select a rating</span>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" placeholder="Share your thoughts, suggestions, or concerns..." rows="6" required></textarea>
-                    </div>
-                    <button type="button" class="submit-btn" onclick="handleFeedbackSubmission()">
-                        <span class="btn-text">Send Feedback</span>
-                        <span class="btn-icon">→</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
->>>>>>> parent of 9fd17f4 (design change)
 </section>
 <footer>
   <div class="footer-container">
@@ -229,7 +129,6 @@
     <p>&copy; 2026 North Aesthetic. All rights reserved.</p>
   </div>
 </footer>
-<<<<<<< HEAD
 <script src="animations.js"></script>
 <script>
   const hamburger = document.getElementById('hamburger');
@@ -303,77 +202,3 @@
 </script>
 </body>
 </html>
-=======
-<script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-        });
-    });
-    const stars = document.querySelectorAll('.star');
-    const ratingInput = document.getElementById('rating');
-    const ratingText = document.getElementById('ratingText');
-    const ratingLabels = ['Poor', 'Fair', 'Good', 'Very Good', 'Excellent'];
-    stars.forEach(star => {
-        star.addEventListener('click', () => {
-            const rating = star.getAttribute('data-rating');
-            ratingInput.value = rating;
-            stars.forEach(s => {
-                if (s.getAttribute('data-rating') <= rating) {
-                    s.classList.add('active');
-                } else {
-                    s.classList.remove('active');
-                }
-            });
-            if (ratingText) {
-                ratingText.textContent = ratingLabels[rating - 1];
-            }
-        });
-        star.addEventListener('mouseover', () => {
-            const rating = star.getAttribute('data-rating');
-            stars.forEach(s => {
-                if (s.getAttribute('data-rating') <= rating) {
-                    s.style.color = '#fbbf24';
-                } else {
-                    s.style.color = '#e5e7eb';
-                }
-            });
-        });
-    });
-    document.getElementById('ratingContainer').addEventListener('mouseleave', () => {
-        const currentRating = ratingInput.value;
-        stars.forEach(s => {
-            if (s.getAttribute('data-rating') <= currentRating) {
-                s.style.color = '#fbbf24';
-            } else {
-                s.style.color = '#e5e7eb';
-            }
-        });
-    });
-    let lastScroll = 0;
-    const navbar = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-        const current = window.pageYOffset;
-        if (current <= 0) {
-            navbar.classList.remove('hidden');
-            navbar.classList.add('visible');
-        } else if (current > lastScroll && current > 100) {
-            navbar.classList.add('hidden');
-            navbar.classList.remove('visible');
-        } else {
-            navbar.classList.remove('hidden');
-            navbar.classList.add('visible');
-        }
-        lastScroll = current;
-    });
-</script>
-</body>
-</html>
->>>>>>> parent of 9fd17f4 (design change)
